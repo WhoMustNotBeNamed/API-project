@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5431/hse_sc
+    username: postgres-user
+    password: postgres-password
+    driver-class-name: org.postgresql.Driver
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          cat-facts:
+            url: https://cat-fact.herokuapp.com
+          omdbClient:
+            url: http://www.omdbapi.com
+          obsidianNotes:
+            url: https://127.0.0.1:27124
+
+omdb:
+  api:
+    api-key: a32baa04
