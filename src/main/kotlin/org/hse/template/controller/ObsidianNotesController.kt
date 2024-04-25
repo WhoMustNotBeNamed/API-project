@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/obsidian")
 class ObsidianNotesController (
+    @Value("\${obsidian.api.token}")
+    private val token: String,
     private val obsidianNotesClient: ObsidianNotesClient
 ) {
     @GetMapping("/notes")
     fun getVaults(request: HttpServletRequest): ObsidianFiles {
-        //val bearerToken = request.getHeader("Authorization")
-        return obsidianNotesClient.getVaults()//bearerToken)
+        val bearerToken = "Bearer $token"
+        return obsidianNotesClient.getVaults(bearerToken)
     }
 }

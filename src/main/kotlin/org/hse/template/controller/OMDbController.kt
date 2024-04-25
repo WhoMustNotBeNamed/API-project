@@ -11,7 +11,7 @@ import java.util.*
 @RequestMapping("/omdb")
 class OMDbController (
     @Value("\${omdb.api.api-key}")
-    val apiKey: String,
+    private val apiKey: String,
     private val omdbClient: OMDbClient
 ) : OMDbApi {
     @GetMapping("/search/{title}")

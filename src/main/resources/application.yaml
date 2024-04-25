@@ -15,7 +15,8 @@ spring:
             url: http://www.omdbapi.com
           obsidianNotes:
             url: https://127.0.0.1:27124
+            logger-level: full
 
-omdb:
-  api:
-    api-key: a32baa04
+logging:
+  level:
+    org.hse.template: debug
