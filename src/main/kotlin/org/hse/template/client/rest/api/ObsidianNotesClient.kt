@@ -1,20 +1,35 @@
 package org.hse.template.client.rest.api
 
+import feign.Headers
+import io.swagger.v3.oas.annotations.parameters.RequestBody
 import org.hse.template.client.rest.model.ObsidianFiles
 import org.springframework.cloud.openfeign.FeignClient
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestHeader
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.http.MediaType
+import org.springframework.web.bind.annotation.*
 
 @FeignClient(name = "obsidianNotes")
 interface ObsidianNotesClient {
     @GetMapping("vault/")
     fun getVaults(@RequestHeader("Authorization") bearerToken: String): ObsidianFiles
 
-    @PutMapping("vault/")
-    fun creareVault(
-        @RequestParam fileName : String,
+    @GetMapping("vault/{fileName}")
+    fun openVault (
+        @PathVariable fileName : String,
         @RequestHeader("Authorization") bearerToken: String
+    ): String
+
+    @PostMapping("vault/{fileName}", produces = [MediaType.TEXT_MARKDOWN_VALUE])
+    fun creareVault(
+        @PathVariable fileName : String,
+        @RequestBody text : String,
+        @RequestHeader("Authorization") bearerToken: String,
+        //@RequestHeader("Content-Type") accept : String = "text/markdown"
+    )
+
+    @DeleteMapping("vault/{fileName}")
+    fun deleteVault(
+        @PathVariable fileName : String,
+        @RequestHeader("Authorization") bearerToken: String,
+//        @RequestHeader("Accept") accept : String = "*/*"
     )
 }
