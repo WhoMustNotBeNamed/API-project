@@ -17,6 +17,15 @@ spring:
             url: https://127.0.0.1:27124
             logger-level: full
 
+#-----uncomment before running
+#omdb:
+#  api:
+#    api-key: <here you must use your token for OMDb api>
+
+#obsidian:
+#  api:
+#    token: <here you must use your token for obsidian local rest api>
+
 logging:
   level:
     org.hse.template: debug
