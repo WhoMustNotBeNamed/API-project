@@ -1,6 +1,5 @@
 package org.hse.template.client.rest.api
 
-import feign.Headers
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import org.hse.template.client.rest.model.ObsidianFiles
 import org.springframework.cloud.openfeign.FeignClient
@@ -23,13 +22,11 @@ interface ObsidianNotesClient {
         @PathVariable fileName : String,
         @RequestBody text : String,
         @RequestHeader("Authorization") bearerToken: String,
-        //@RequestHeader("Content-Type") accept : String = "text/markdown"
     )
 
     @DeleteMapping("vault/{fileName}")
     fun deleteVault(
         @PathVariable fileName : String,
         @RequestHeader("Authorization") bearerToken: String,
-//        @RequestHeader("Accept") accept : String = "*/*"
     )
 }

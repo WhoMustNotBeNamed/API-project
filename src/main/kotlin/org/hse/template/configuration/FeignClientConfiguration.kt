@@ -8,11 +8,4 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 @EnableFeignClients(basePackages = ["org.hse.template.client.rest.api"])
-class FeignClientConfiguration {
-//    @Bean
-//    fun authRequestInterceptor(): RequestInterceptor {
-//        return RequestInterceptor { template: RequestTemplate ->
-//            template.header("Authorization", "Bearer X")
-//        }
-//    }
-}
+class FeignClientConfiguration {}
