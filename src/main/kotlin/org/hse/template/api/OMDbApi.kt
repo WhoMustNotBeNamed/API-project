@@ -1,13 +1,15 @@
 package org.hse.template.api
 
+import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.hse.template.client.rest.model.MovieSearch
 
+@Tag(name = "OMDb" , description = "API для работы с информацией о фильмах")
 interface OMDbApi {
-    @Tag(name = "Получение всей информации о фильме по его названию")
+    @Operation(summary = "Получение всей информации о фильме по его названию")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
@@ -22,7 +24,7 @@ interface OMDbApi {
         title: String = "The Matrix"
     ): String
 
-    @Tag(name = "Получение всей информации о фильме по его ID")
+    @Operation(summary = "Получение всей информации о фильме по его ID")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
@@ -37,7 +39,7 @@ interface OMDbApi {
         id: String = "tt0133093"
     ): String
 
-    @Tag(name = "Поиск фильмов по названию и году")
+    @Operation(summary = "Поиск фильмов по названию и году")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
@@ -57,7 +59,7 @@ interface OMDbApi {
         year: String = "2004"
     ) : MovieSearch
 
-    @Tag(name = "Поиск сериала по названию и году")
+    @Operation(summary = "Поиск сериала по названию и году")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",

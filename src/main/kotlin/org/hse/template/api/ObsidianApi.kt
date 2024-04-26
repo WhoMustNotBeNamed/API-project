@@ -1,13 +1,15 @@
 package org.hse.template.api
 
+import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.hse.template.client.rest.model.ObsidianFiles
 
+@Tag(name = "Obsidian" , description = "API для работы с заметками в Obsidian")
 interface ObsidianApi {
-    @Tag(name = "Все заметки")
+    @Operation(summary = "Все заметки")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
@@ -16,7 +18,7 @@ interface ObsidianApi {
     )
     fun getVaults(): ObsidianFiles
 
-    @Tag(name = "Открыть заметку")
+    @Operation(summary = "Открыть заметку")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
@@ -31,7 +33,7 @@ interface ObsidianApi {
         name: String = "Welcome.md"
     ): String
 
-    @Tag(name = "Создать заметку или дополнить существующую")
+    @Operation(summary = "Создать заметку или дополнить существующую")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
@@ -51,7 +53,7 @@ interface ObsidianApi {
         text: String = "Hello, World!"
     )
 
-    @Tag(name = "Удалить заметку")
+    @Operation(summary = "Удалить заметку")
     @ApiResponses(
         ApiResponse(
             description = "Успешный запрос",
