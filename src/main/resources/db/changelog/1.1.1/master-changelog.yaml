@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: omdb_search.sql
+  - changeSet:
+      id: 1.1.0
+      author: aevsyukov_1@edu.hse.ru
+      logicalFilePath: 1.1.0/db.changelog.yaml
+      changes:
+        - tagDatabase:
+            tag: 1.1.0
