@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5431/hse_sc
+    url: jdbc:postgresql://postgres:5432/hse_sc
     username: postgres-user
     password: postgres-password
     driver-class-name: org.postgresql.Driver
@@ -14,7 +14,7 @@ spring:
           omdbClient:
             url: http://www.omdbapi.com
           obsidianNotes:
-            url: https://127.0.0.1:27124
+            url: https://host.docker.internal:27124
             logger-level: full
 
 #-----uncomment before running
@@ -25,6 +25,7 @@ spring:
 #obsidian:
 #  api:
 #    token: <here you must use your token for obsidian local rest api>
+
 
 logging:
   level:
